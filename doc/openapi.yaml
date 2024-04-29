@@ -13,6 +13,8 @@ paths:
       responses:
         '200':
           description: A list of tracks
+        '500':
+          description: Internal Server Error
     post:
       summary: Create a new track
       requestBody:
@@ -24,6 +26,8 @@ paths:
       responses:
         '201':
           description: Created
+        '500':
+          description: Internal Server Error
   /tracks/{id}:
     get:
       summary: Get a track by ID
@@ -39,6 +43,8 @@ paths:
           description: A track object
         '404':
           description: Track not found
+        '500':
+          description: Internal Server Error
     put:
       summary: Update a track by ID
       parameters:
@@ -59,6 +65,8 @@ paths:
           description: Updated
         '404':
           description: Track not found
+        '500':
+          description: Internal Server Error
     delete:
       summary: Delete a track by ID
       parameters:
@@ -71,6 +79,11 @@ paths:
       responses:
         '204':
           description: No content
+        '404':
+          description: Track not found
+        '500':
+          description: Internal Server Error
+
 components:
   schemas:
     Track:

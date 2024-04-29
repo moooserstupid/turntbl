@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Music Web App",
     "author": "Ali Asghar <aligulli123@gmail.com>",
-    "main": "src/backend/server.js",
+    "main": "src/server.js",
     "scripts": {
         "start": "node server.js",
         "dev": "nodemon server.js"
