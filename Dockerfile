@@ -15,7 +15,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN npm build
-
 EXPOSE 3000
 CMD ./start.sh
