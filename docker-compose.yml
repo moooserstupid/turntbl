@@ -2,6 +2,7 @@ services:
   app:
     build: .
     volumes:
+      - ./node_modules:/usr/src/app/node_modules
       - .:/usr/src/app
     container_name: music-web-app
     restart: always
