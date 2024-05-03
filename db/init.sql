@@ -1,5 +1,5 @@
 CREATE TABLE tracks (
-    id INT,
+    id SERIAL PRIMARY KEY,
     title TEXT,
     artist TEXT,
     album TEXT

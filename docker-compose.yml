@@ -2,8 +2,9 @@ services:
   app:
     build: .
     volumes:
-      - ./node_modules:/usr/src/app/node_modules
       - .:/usr/src/app
+      - /usr/src/app/node_modules
+
     container_name: music-web-app
     restart: always
     ports:
