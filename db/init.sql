@@ -43,7 +43,7 @@ CREATE TABLE tracks (
 
 -- Insert the user
 INSERT INTO users (name, surname, email, password)
-VALUES ('Ali', 'Asghar', 'aligulli123@gmail.com', '1234');
+VALUES ('Ali', 'Asghar', 'aligulli123@gmail.com', '$2a$10$lmMW6Pxo4uQOpgMOudpAfeWHFQl2PHFcpBPaCn1tr5WIWgdFt/iDm');
 
 -- Retrieve the user ID
 WITH user_info AS (

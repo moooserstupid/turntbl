@@ -1,7 +1,7 @@
 const pool = require('../database');
 
 const getAllPlaylistsAndTracks = async (req, res) => {
-    const userId = req.user.userId[0];
+    const userId = req.user.userId;
     try {
         const result = await pool.query('SELECT * FROM get_playlists_and_tracks($1);', [userId]);
         if (result.rowCount > 0) {
@@ -16,7 +16,7 @@ const getAllPlaylistsAndTracks = async (req, res) => {
 };
 
 const createNewPlaylist = async (req, res) => {
-    const userId = req.user.userId[0];
+    const userId = req.user.userId;
     const { playlistName } = req.body;
     const client = await pool.connect();
     try {
@@ -40,7 +40,7 @@ const createNewPlaylist = async (req, res) => {
 };
 
 const deletePlaylist = async (req, res) => {
-    const userId = req.user.userId[0];
+    const userId = req.user.userId;
     const { playlistId } = req.body;
     const client = await pool.connect();
     try {

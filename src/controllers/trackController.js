@@ -1,7 +1,7 @@
 const pool = require('../database');
 
 const getAllTracks = async (req, res) => {
-    const userId = req.user.userId[0];
+    const userId = req.user.userId;
     try {
         //const client = await pool.connect();
         const result = await pool.query('SELECT * FROM tracks WHERE userId = $1', [userId]);
@@ -14,7 +14,7 @@ const getAllTracks = async (req, res) => {
 };
 
 const addTrackToPlaylist = async (req, res) => {
-    const userId = req.user.userId[0];
+    const userId = req.user.userId;
     const {title, cover, artist, audioUrl} = req.body;
     const client = await pool.connect();
     try {
@@ -40,7 +40,7 @@ const addTrackToPlaylist = async (req, res) => {
 }
 
 const deleteTrackFromPlaylist = async (req, res) => {
-    const userId = req.user.userId[0];
+    const userId = req.user.userId;
     const {id} = req.body;
     const client = await pool.connect();
     try {
@@ -50,7 +50,6 @@ const deleteTrackFromPlaylist = async (req, res) => {
         const queryText = 'DELETE FROM tracks WHERE id = $1 AND playlistId = $2 AND userId = $3';
         const result = await client.query(queryText, [id, playlistId, userId]);
         if (result.rowCount > 0) {
-            console.log('Deleted!!');
             res.status(204).json();
         } else {
             res.status(404).send({success: false, message: 'Track not found'});
@@ -66,7 +65,7 @@ const deleteTrackFromPlaylist = async (req, res) => {
 
 const getTrackById = async (req, res) => {
     const id = parseInt(req.params.id);
-    const userId = req.user.userId[0];
+    const userId = req.user.userId;
     try{
         //const client = await pool.connect();
         const result = await pool.query('SELECT * FROM tracks WHERE id = $1 AND userId = $2', [id, userId]);
